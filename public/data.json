@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "name": "ABC Corporation",
+        "type": "Business",
+        "resources": ["Financial support", "Mentorship programs"],
+        "contact": {
+            "name": "John Doe",
+            "email": "john.doe@abc.com",
+            "phone": "123-456-7890"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Community Foundation XYZ",
+        "type": "Community",
+        "resources": ["Grant opportunities", "Community events"],
+        "contact": {
+            "name": "Jane Smith",
+            "email": "jane.smith@xyzfoundation.org",
+            "phone": "987-654-3210"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Tech Innovators Association",
+        "type": "Nonprofit",
+        "resources": ["Tech workshops", "Networking events"],
+        "contact": {
+            "name": "Bob Johnson",
+            "email": "bob.johnson@techinnovators.org",
+            "phone": "555-123-4567"
+        }
+    }
+]
