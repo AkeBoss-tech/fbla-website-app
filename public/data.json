@@ -1,9 +1,42 @@
 [
     {
         "id": 1,
+        "name": "XYZ Foundation",
+        "type": "Nonprofit",
+        "resources": ["Grant Funding", "Volunteer Programs"],
+        "contact": {
+            "name": "Alice Johnson",
+            "email": "alice@xyzfoundation.org",
+            "phone": "555-1234"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Tech Innovators Inc.",
+        "type": "Business",
+        "resources": ["Technology Solutions", "Internship Programs"],
+        "contact": {
+            "name": "Bob Smith",
+            "email": "bob@techinnovators.com",
+            "phone": "555-5678"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Green Earth Association",
+        "type": "Nonprofit",
+        "resources": ["Environmental Education", "Community Gardens"],
+        "contact": {
+            "name": "Eva Green",
+            "email": "eva@greenearth.org",
+            "phone": "555-9876"
+        }
+    },
+    {
+        "id": 4,
         "name": "ABC Corporation",
         "type": "Business",
-        "resources": ["Financial support", "Mentorship programs"],
+        "resources": ["Financial Support", "Mentorship Programs"],
         "contact": {
             "name": "John Doe",
             "email": "john.doe@abc.com",
@@ -11,25 +44,69 @@
         }
     },
     {
-        "id": 2,
-        "name": "Community Foundation XYZ",
-        "type": "Community",
-        "resources": ["Grant opportunities", "Community events"],
+        "id": 5,
+        "name": "Healthcare Heroes Foundation",
+        "type": "Nonprofit",
+        "resources": ["Medical Supplies", "Healthcare Training"],
         "contact": {
-            "name": "Jane Smith",
-            "email": "jane.smith@xyzfoundation.org",
-            "phone": "987-654-3210"
+            "name": "Dr. Sarah Adams",
+            "email": "sarah@healthcareheroes.org",
+            "phone": "555-4321"
         }
     },
     {
-        "id": 3,
-        "name": "Tech Innovators Association",
+        "id": 6,
+        "name": "Innovate for Education",
         "type": "Nonprofit",
-        "resources": ["Tech workshops", "Networking events"],
+        "resources": ["Educational Technology", "Scholarship Programs"],
         "contact": {
-            "name": "Bob Johnson",
-            "email": "bob.johnson@techinnovators.org",
-            "phone": "555-123-4567"
+            "name": "Mark Thompson",
+            "email": "mark@innovateforeducation.org",
+            "phone": "555-8765"
+        }
+    },
+    {
+        "id": 7,
+        "name": "Global Solutions Co.",
+        "type": "Business",
+        "resources": ["International Business Partnerships", "Training Programs"],
+        "contact": {
+            "name": "Emily White",
+            "email": "emily@globalsolutions.com",
+            "phone": "555-2345"
+        }
+    },
+    {
+        "id": 8,
+        "name": "Arts & Culture Foundation",
+        "type": "Nonprofit",
+        "resources": ["Arts Grants", "Cultural Events"],
+        "contact": {
+            "name": "David Turner",
+            "email": "david@artsandculture.org",
+            "phone": "555-6789"
+        }
+    },
+    {
+        "id": 9,
+        "name": "Energy Innovations Inc.",
+        "type": "Business",
+        "resources": ["Renewable Energy Solutions", "Internship Programs"],
+        "contact": {
+            "name": "Emma Davis",
+            "email": "emma@energyinnovations.com",
+            "phone": "555-3456"
+        }
+    },
+    {
+        "id": 10,
+        "name": "Community Builders Association",
+        "type": "Nonprofit",
+        "resources": ["Community Development Grants", "Housing Programs"],
+        "contact": {
+            "name": "Michael Harris",
+            "email": "michael@communitybuilders.org",
+            "phone": "555-5432"
         }
     }
 ]
