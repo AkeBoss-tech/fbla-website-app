@@ -8,7 +8,9 @@
             "name": "Alice Johnson",
             "email": "alice@xyzfoundation.org",
             "phone": "555-1234"
-        }
+        },
+        "imagePath": "xyz-foundation.jpg",
+        "numberOfEmployees": 50
     },
     {
         "id": 2,
@@ -19,7 +21,9 @@
             "name": "Bob Smith",
             "email": "bob@techinnovators.com",
             "phone": "555-5678"
-        }
+        },
+        "imagePath": "tech-innovators.jpg",
+        "numberOfEmployees": 200
     },
     {
         "id": 3,
@@ -30,7 +34,9 @@
             "name": "Eva Green",
             "email": "eva@greenearth.org",
             "phone": "555-9876"
-        }
+        },
+        "imagePath": "green-earth-association.jpg",
+        "numberOfEmployees": 30
     },
     {
         "id": 4,
@@ -41,7 +47,9 @@
             "name": "John Doe",
             "email": "john.doe@abc.com",
             "phone": "123-456-7890"
-        }
+        },
+        "imagePath": "abc-corporation.jpg",
+        "numberOfEmployees": 150
     },
     {
         "id": 5,
@@ -52,7 +60,9 @@
             "name": "Dr. Sarah Adams",
             "email": "sarah@healthcareheroes.org",
             "phone": "555-4321"
-        }
+        },
+        "imagePath": "healthcare-heroes-foundation.jpg",
+        "numberOfEmployees": 75
     },
     {
         "id": 6,
@@ -63,7 +73,9 @@
             "name": "Mark Thompson",
             "email": "mark@innovateforeducation.org",
             "phone": "555-8765"
-        }
+        },
+        "imagePath": "innovate-for-education.jpg",
+        "numberOfEmployees": 40
     },
     {
         "id": 7,
@@ -74,7 +86,9 @@
             "name": "Emily White",
             "email": "emily@globalsolutions.com",
             "phone": "555-2345"
-        }
+        },
+        "imagePath": "global-solutions-co.jpg",
+        "numberOfEmployees": 250
     },
     {
         "id": 8,
@@ -85,7 +99,9 @@
             "name": "David Turner",
             "email": "david@artsandculture.org",
             "phone": "555-6789"
-        }
+        },
+        "imagePath": "arts-culture-foundation.jpg",
+        "numberOfEmployees": 60
     },
     {
         "id": 9,
@@ -96,7 +112,9 @@
             "name": "Emma Davis",
             "email": "emma@energyinnovations.com",
             "phone": "555-3456"
-        }
+        },
+        "imagePath": "energy-innovations-inc.jpg",
+        "numberOfEmployees": 180
     },
     {
         "id": 10,
@@ -107,6 +125,8 @@
             "name": "Michael Harris",
             "email": "michael@communitybuilders.org",
             "phone": "555-5432"
-        }
+        },
+        "imagePath": "community-builders-association.jpg",
+        "numberOfEmployees": 55
     }
 ]

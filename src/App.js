@@ -25,8 +25,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Search partners={organizations} />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/search" element={<Search partners={organizations} />} />
+        <Route path="/" element={<Home />} />
         <Route path="/partner/:id" element={<Organization partners={organizations} />} /> 
       </Routes>
     </BrowserRouter>

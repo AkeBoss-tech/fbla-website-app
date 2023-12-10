@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
                 <Link className="navbar-brand" to="/">
                     Organizations Near You
@@ -23,9 +23,9 @@ const Navbar = () => {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ms-auto"> {/* Use ms-auto class to align items to the left */}
+                    <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">
+                            <Link className="nav-link" to="/search">
                                 Search
                             </Link>
                         </li>
