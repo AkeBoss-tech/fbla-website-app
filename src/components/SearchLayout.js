@@ -1,5 +1,6 @@
 // SearchLayout.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import FilterLayout from './FilterLayout';
 import OrganizationCard from './OrganizationCard';
 
@@ -8,6 +9,15 @@ const SearchLayout = ({ organizationsData }) => {
     const [searchText, setSearchText] = useState('');
     const [sortBy, setSortBy] = useState('numberOfEmployees'); // Default sorting by number of employees
     const [sortOrderAsc, setSortOrderAsc] = useState(true); // Default sorting in ascending order
+
+    const location = useLocation();
+
+    useEffect(() => {
+        // Extract the 'keywords' parameter from the URL
+        const searchParams = new URLSearchParams(location.search);
+        const keywords = searchParams.get('keywords') || '';
+        setSearchText(decodeURIComponent(keywords));
+    }, [location.search]);
 
     const types = Array.from(new Set(organizationsData.map((org) => org.type)));
     const resources = Array.from(new Set(organizationsData.flatMap((org) => org.resources)));

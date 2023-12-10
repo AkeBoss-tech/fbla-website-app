@@ -17,14 +17,15 @@ const OrganizationCard = ({ organization }) => {
                             <h5 className="card-title">{organization.name}</h5>
                         </a>
                         <p className="card-text">{organization.type}</p>
-                        <p className="card-text">Contact: {organization.contact.name}</p>
-                        <p className="card-text">Email: {organization.contact.email}</p>
-                        <p className="card-text">Phone: {organization.contact.phone}</p>
+                        <p className="card-text">Number of Employees: {organization.numberOfEmployees}</p>
+                        
                         <p className="card-text">Resources: {organization.resources.join(', ')}</p>
                         {expanded && (
                             <>
                                 {/* Additional organization details */}
-                                <p className="card-text">Number of Employees: {organization.numberOfEmployees}</p>
+                                <p className="card-text">Contact: {organization.contact.name}</p>
+                                <p className="card-text">Email: {organization.contact.email}</p>
+                                <p className="card-text">Phone: {organization.contact.phone}</p>
                                 {/* Add more organization details as needed */}
                             </>
                         )}

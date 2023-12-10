@@ -6,36 +6,60 @@ const FilterLayout = ({ types, resources, onFilterChange }) => {
     const [selectedResources, setSelectedResources] = useState([]);
 
     const handleTypeChange = (type) => {
-        const updatedTypes = [...selectedTypes];
-        if (updatedTypes.includes(type)) {
-            // Remove type if already selected
-            updatedTypes.splice(updatedTypes.indexOf(type), 1);
-        } else {
-            // Add type if not selected
-            updatedTypes.push(type);
-        }
-
+        const updatedTypes = toggleFilter(selectedTypes, type);
         setSelectedTypes(updatedTypes);
         onFilterChange({ types: updatedTypes, resources: selectedResources });
     };
 
     const handleResourceChange = (resource) => {
-        const updatedResources = [...selectedResources];
-        if (updatedResources.includes(resource)) {
-            // Remove resource if already selected
-            updatedResources.splice(updatedResources.indexOf(resource), 1);
-        } else {
-            // Add resource if not selected
-            updatedResources.push(resource);
-        }
-
+        const updatedResources = toggleFilter(selectedResources, resource);
         setSelectedResources(updatedResources);
         onFilterChange({ types: selectedTypes, resources: updatedResources });
     };
 
+    const toggleFilter = (selectedFilters, filter) => {
+        return selectedFilters.includes(filter)
+            ? selectedFilters.filter((selected) => selected !== filter)
+            : [...selectedFilters, filter];
+    };
+
+    const clearAllFilters = () => {
+        setSelectedTypes([]);
+        setSelectedResources([]);
+        onFilterChange({ types: [], resources: [] });
+    };
+
     return (
         <div className="filters">
-            <h4>Filters</h4>
+            {/* Selected Filters Section */}
+            {/* Only add if filters are present */}
+            { selectedTypes.length > 0 || selectedResources.length > 0 
+                ? <div className="selected-filters mb-4">
+                <h3>Selected Filters</h3>
+                {selectedTypes.map((type) => (
+                    <div className="selected-filter" key={`selected${type}`}>
+                        <button
+                            className="btn btn-outline-secondary btn-sm ms-2"
+                            onClick={() => handleTypeChange(type)}
+                        >
+                            {type} <i className="bi bi-x"></i>
+                        </button>
+                    </div>
+                ))}
+                {selectedResources.map((resource) => (
+                    <div className="selected-filter" key={`selected${resource}`}>
+                        <button
+                            className="btn btn-outline-secondary btn-sm ms-2"
+                            onClick={() => handleResourceChange(resource)}
+                        >
+                            {resource} <i className="bi bi-x"></i>
+                        </button>
+                    </div>
+                ))}
+            </div>
+                : null
+            }
+            <h3>Filters</h3>
             <div className="form-check">
                 <input
                     className="form-check-input"
@@ -43,10 +67,7 @@ const FilterLayout = ({ types, resources, onFilterChange }) => {
                     value=""
                     id="filterAllCategories"
                     checked={selectedTypes.length === 0}
-                    onChange={() => {
-                        setSelectedTypes([]);
-                        onFilterChange({ types: [], resources: selectedResources });
-                    }}
+                    onChange={clearAllFilters}
                 />
                 <label className="form-check-label" htmlFor="filterAllCategories">
                     All Categories
@@ -98,6 +119,7 @@ const FilterLayout = ({ types, resources, onFilterChange }) => {
                     </label>
                 </div>
             ))}
+            
         </div>
     );
 };

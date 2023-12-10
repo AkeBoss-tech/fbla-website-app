@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Search from "./pages/Search";
 import Organization from "./pages/Organization";
 import Home from "./pages/Home";
+import About from "./pages/About";
 
 const App = () => {
   const [organizations, setOrganizations] = useState([]);
@@ -25,8 +26,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Home partners={organizations} />} />
         <Route path="/search" element={<Search partners={organizations} />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/partner/:id" element={<Organization partners={organizations} />} /> 
       </Routes>
     </BrowserRouter>
