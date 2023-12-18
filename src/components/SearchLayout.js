@@ -130,7 +130,7 @@ const SearchLayout = ({ organizationsData }) => {
                     </div>
                     <div className="organization-cards">
                         {filteredOrganizations.map((organization) => (
-                            <OrganizationCard key={organization.id} organization={organization} />
+                            <OrganizationCard key={organization.id} organization={organization} image={true} />
                         ))}
                     </div>
                 </div>
