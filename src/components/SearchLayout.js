@@ -1,11 +1,11 @@
 // SearchLayout.js
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate  } from 'react-router-dom';
 import FilterLayout from './FilterLayout';
 import OrganizationCard from './OrganizationCard';
 
 const SearchLayout = ({ organizationsData }) => {
-    const [filters, setFilters] = useState({ types: [], resources: [] });
+    const [filters, setFilters] = useState({ types: [], resources: [], keywordFilter: true });
     const [searchText, setSearchText] = useState('');
     const [sortBy, setSortBy] = useState('numberOfEmployees'); // Default sorting by number of employees
     const [sortOrderAsc, setSortOrderAsc] = useState(true); // Default sorting in ascending order
@@ -22,6 +22,8 @@ const SearchLayout = ({ organizationsData }) => {
     const types = Array.from(new Set(organizationsData.map((org) => org.type)));
     const resources = Array.from(new Set(organizationsData.flatMap((org) => org.resources)));
 
+    const history = useNavigate();
+
     const compareFunction = (a, b) => {
         const valueA = a[sortBy];
         const valueB = b[sortBy];
@@ -36,26 +38,32 @@ const SearchLayout = ({ organizationsData }) => {
     };
 
     const filteredOrganizations = organizationsData
-        .filter(
-            (organization) =>
-                (filters.types.length === 0 || filters.types.includes(organization.type)) &&
-                (filters.resources.length === 0 || organization.resources.some((res) => filters.resources.includes(res))) &&
-                (searchText === '' ||
-                    organization.name.toLowerCase().includes(searchText.toLowerCase()) ||
-                    organization.type.toLowerCase().includes(searchText.toLowerCase()) ||
-                    organization.resources.some((res) => res.toLowerCase().includes(searchText.toLowerCase())) ||
-                    organization.contact.name.toLowerCase().includes(searchText.toLowerCase()) ||
-                    organization.contact.email.toLowerCase().includes(searchText.toLowerCase()) ||
-                    organization.contact.phone.toLowerCase().includes(searchText.toLowerCase()))
-        )
-        .sort(compareFunction);
+    .filter(
+        (organization) =>
+            (filters.types.length === 0 || filters.types.includes(organization.type)) &&
+            (filters.resources.length === 0 || organization.resources.some((res) => filters.resources.includes(res))) &&
+            (!filters.keywordFilter || // Check if keyword filter is enabled
+                searchText === '' ||
+                organization.name.toLowerCase().includes(searchText.toLowerCase()) ||
+                organization.type.toLowerCase().includes(searchText.toLowerCase()) ||
+                organization.resources.some((res) => res.toLowerCase().includes(searchText.toLowerCase())) ||
+                organization.contact.name.toLowerCase().includes(searchText.toLowerCase()) ||
+                organization.contact.email.toLowerCase().includes(searchText.toLowerCase()) ||
+                organization.contact.phone.toLowerCase().includes(searchText.toLowerCase()))
+    )
+    .sort(compareFunction);
 
-    const handleFilterChange = ({ types, resources }) => {
-        setFilters({ types, resources });
+
+    const handleFilterChange = ({ types, resources, keywordFilter }) => {
+        setFilters({ types, resources, keywordFilter });
     };
 
     const handleSearchChange = (event) => {
         setSearchText(event.target.value);
+        // Update 'keywords' parameter in the URL
+        const searchParams = new URLSearchParams(location.search);
+        searchParams.set('keywords', encodeURIComponent(event.target.value));
+        history(`?${searchParams.toString()}`);
     };
 
     const handleSortByChange = (event) => {

@@ -57,8 +57,7 @@ function Home({ partners }) {
                     <h3>Related Organizations</h3>
                     <Carousel>
                         {relatedOrganizations.map((org) => (
-                            <div className="p-2"><OrganizationCard organization={org} smallerSize={true} /></div>
-                            
+                            <div className="p-2"><OrganizationCard organization={org} smallerSize={true} image={false} /></div>
                         ))}
                     </Carousel>
                 </div>

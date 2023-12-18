@@ -35,8 +35,8 @@ const Organization = ({ partners }) => {
                 <div className="related-organizations-carousel-container">
                     <h3>Related Organizations</h3>
                     <Carousel>
-                        {[partner, ...relatedOrganizations].map((org) => (
-                            <OrganizationCard key={org.id} organization={org} smallerSize={true} style={{ maxWidth: '20px' }} />
+                        {relatedOrganizations.map((org) => (
+                            <div className="p-2"><OrganizationCard organization={org} smallerSize={true} image={false} /></div>
                         ))}
                     </Carousel>
                 </div>

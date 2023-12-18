@@ -1,7 +1,8 @@
 // OrganizationCard.js
 import React, { useState } from 'react';
 
-const OrganizationCard = ({ organization }) => {
+// add optional prop for image
+const OrganizationCard = ({ organization, image }) => {
     const [expanded, setExpanded] = useState(false);
 
     const handleToggleExpand = () => {
@@ -11,7 +12,7 @@ const OrganizationCard = ({ organization }) => {
     return (
         <div className={`card mb-3 ${expanded ? 'expanded' : ''}`}>
             <div className="row g-0">
-                <div className="col-md-6">
+                <div className={image ? "col-md-6" : "col-md-12"}>
                     <div className="card-body">
                         <a href={`/partner/${organization.id}`}>
                             <h5 className="card-title">{organization.name}</h5>
@@ -38,15 +39,20 @@ const OrganizationCard = ({ organization }) => {
                     </div>
                 </div>
                 {/* Image on the right side for larger screens */}
-                <div className="col-md-6 d-none d-md-block">
+                {image
+                    ? <div className="col-md-6 d-none d-md-block">
                     <div className="image-container h-100">
                         <img
-                            src={`images/${organization.imagePath}`}
+                            /* check if image is path or link */
+                            src={organization.imagePath.includes('http') ? organization.imagePath : `images/${organization.imagePath}`}
                             alt={organization.name}
                             className="img-fluid h-100 w-100 object-fit-cover"
                         />
                     </div>
                 </div>
+                : null
+                }
+                
             </div>
         </div>
     );

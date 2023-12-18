@@ -22,7 +22,7 @@
             "email": "bob@techinnovators.com",
             "phone": "555-5678"
         },
-        "imagePath": "tech-innovators.jpg",
+        "imagePath": "https://picsum.photos/200",
         "numberOfEmployees": 200
     },
     {
@@ -74,7 +74,7 @@
             "email": "mark@innovateforeducation.org",
             "phone": "555-8765"
         },
-        "imagePath": "innovate-for-education.jpg",
+        "imagePath": "https://picsum.photos/200/200",
         "numberOfEmployees": 40
     },
     {
