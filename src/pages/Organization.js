@@ -21,26 +21,34 @@ const Organization = ({ partners }) => {
     return (
         <>
             <Navbar />
-            <Section margin="2">
+            <div className="container mt-5">
                 <h2>{partner.name}</h2>
+                <img
+                    /* check if image is path or link */
+                    src={partner.imagePath.includes('http') ? partner.imagePath : `images/${partner.imagePath}`}
+                    alt={partner.name}
+                    className="img-fluid h-100 w-100 object-fit-cover"
+                />
                 <p>Type: {partner.type}</p>
                 <p>Resources: {partner.resources.join(', ')}</p>
-                <p>Contact: {partner.contact.name} - {partner.contact.email} - {partner.contact.phone}</p>
+                <p>Contact: {partner.contact.name} - <a href='mailto:${partner.contact.email}'>{partner.contact.email}</a> - {partner.contact.phone}</p>
+                <p>Employees: {partner.numberOfEmployees}</p>
 
                 {/* Additional Information */}
                 {/* Add more details about the organization as needed */}
                 <p>Number of Employees: {partner.numberOfEmployees}</p>
-
-                {/* Carousel with Related Organizations */}
-                <div className="related-organizations-carousel-container">
-                    <h3>Related Organizations</h3>
-                    <Carousel>
-                        {relatedOrganizations.map((org) => (
-                            <div className="p-2"><OrganizationCard organization={org} smallerSize={true} image={false} /></div>
-                        ))}
-                    </Carousel>
-                </div>
-            </Section>
+                <br></br>
+                
+            </div>
+            {/* Carousel with Related Organizations */}
+            <div className="related-organizations-carousel-container">
+                <h3>Related Organizations</h3>
+                <Carousel>
+                    {relatedOrganizations.map((org) => (
+                        <div className="p-2"><OrganizationCard organization={org} smallerSize={true} image={false} /></div>
+                    ))}
+                </Carousel>
+            </div>
             <Footer />
         </>
     );
