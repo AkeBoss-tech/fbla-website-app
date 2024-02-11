@@ -25,21 +25,69 @@ const Organization = ({ partners }) => {
                 <h2>{partner.name}</h2>
                 <img
                     /* check if image is path or link */
-                    src={partner.imagePath.includes('http') ? partner.imagePath : `images/${partner.imagePath}`}
+                    src={partner.logo.includes('http') ? partner.logo : `images/${partner.logo}`}
                     alt={partner.name}
                     className="img-fluid h-100 w-100 object-fit-cover"
                 />
-                <p>Type: {partner.type}</p>
-                <p>Resources: {partner.resources.join(', ')}</p>
-                <p>Contact: {partner.contact.name} - <a href='mailto:${partner.contact.email}'>{partner.contact.email}</a> - {partner.contact.phone}</p>
-                <p>Employees: {partner.numberOfEmployees}</p>
+                
+                <p>Categories: {partner.category.join(', ')}</p>
 
-                {/* Additional Information */}
-                {/* Add more details about the organization as needed */}
-                <p>Number of Employees: {partner.numberOfEmployees}</p>
+                {/* add the orginal source of the organization */}
+                <a href={partner.link}>Source</a>
+
+                {/* add the about in fancy text */}
+                <Section title="About" content={partner.about} />
+
+                {/* add the address, phone and website with icons next to them */}
+                <div className="row">
+                    <div className="col-md-4">
+                        <i className="bi bi-geo-alt-fill"></i>
+                        <p>{partner.address}</p>
+                    </div>
+                    <div className="col-md-4">
+                        <i className="bi bi-telephone-fill"></i>
+                        <p>{partner.phone}</p>
+                    </div>
+                    <div className="col-md-4">
+                        <i className="bi bi-link-45deg"></i>
+                        <a href={partner.website}>Website</a>
+                    </div>
+                </div>
+
+                {/* if there is an address embed a little google maps iframe */}
+                {partner.address && (
+                    <p>I love google maps</p>
+                )}
+                
+                {/* make a little card for local representative if exists */}
+                {partner.contact_info.name  && (
+                    <div className="card">
+                        <div className="card-body">
+                            <p className="card-title">{partner.contact_info.name}</p>
+                            <p className="card-text">{partner.contact_info.title}</p>
+                            <p className="card-text">{partner.contact_info.phone}</p>
+                        </div>
+                    </div>
+                )}
+
+                {/* if there are images make a caruosel for them */}
+                {partner.images.length > 0 && (
+                    <Carousel>
+                        {partner.images.map((image) => (
+                            <div className="p-2">
+                                <img
+                                    src={image.includes('http') ? image : `images/${image}`}
+                                    alt={partner.name}
+                                    className="img-fluid h-100 w-100 object-fit-cover"
+                                />
+                            </div>
+                        ))}
+                    </Carousel>
+                )}
                 <br></br>
                 
             </div>
+
             {/* Carousel with Related Organizations */}
             <div className="related-organizations-carousel-container">
                 <h3>Related Organizations</h3>

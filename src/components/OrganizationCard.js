@@ -17,16 +17,13 @@ const OrganizationCard = ({ organization, image }) => {
                         <a href={`/partner/${organization.id}`}>
                             <h5 className="card-title">{organization.name}</h5>
                         </a>
-                        <p className="card-text">{organization.type}</p>
-                        <p className="card-text">Number of Employees: {organization.numberOfEmployees}</p>
-                        
-                        <p className="card-text">Resources: {organization.resources.join(', ')}</p>
+                        <p className="card-text">Categories: {organization.category.join(', ')}</p>
                         {expanded && (
                             <>
                                 {/* Additional organization details */}
-                                <p className="card-text">Contact: {organization.contact.name}</p>
-                                <p className="card-text">Email: {organization.contact.email}</p>
-                                <p className="card-text">Phone: {organization.contact.phone}</p>
+                                <p className="card-text">Contact: {organization.address}</p>
+                                <p className="card-text"><a href={organization.website}>Website</a></p>
+                                <p className="card-text">Phone: {organization.phone}</p>
                                 {/* Add more organization details as needed */}
                             </>
                         )}
@@ -44,7 +41,7 @@ const OrganizationCard = ({ organization, image }) => {
                     <div className="image-container h-100">
                         <img
                             /* check if image is path or link */
-                            src={organization.imagePath.includes('http') ? organization.imagePath : `images/${organization.imagePath}`}
+                            src={organization.logo.includes('http') ? organization.logo : `images/${organization.logo}`}
                             alt={organization.name}
                             className="img-fluid h-100 w-100 object-fit-cover"
                         />

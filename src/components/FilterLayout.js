@@ -1,21 +1,14 @@
 // FilterLayout.js
 import React, { useState } from 'react';
 
-const FilterLayout = ({ types, resources, onFilterChange }) => {
-    const [selectedTypes, setSelectedTypes] = useState([]);
-    const [selectedResources, setSelectedResources] = useState([]);
+const FilterLayout = ({ categories, onFilterChange }) => {
+    const [selectedCategories, setSelectedCategories] = useState([]);
     const [keywordFilter, setKeywordFilter] = useState(true);
 
-    const handleTypeChange = (type) => {
-        const updatedTypes = toggleFilter(selectedTypes, type);
-        setSelectedTypes(updatedTypes);
-        onFilterChange({ types: updatedTypes, resources: selectedResources, keywordFilter });
-    };
-
     const handleResourceChange = (resource) => {
-        const updatedResources = toggleFilter(selectedResources, resource);
-        setSelectedResources(updatedResources);
-        onFilterChange({ types: selectedTypes, resources: updatedResources, keywordFilter });
+        const updatedCategories = toggleFilter(selectedCategories, resource);
+        setSelectedCategories(updatedCategories);
+        onFilterChange({ categories: updatedCategories, keywordFilter });
     };
 
     const toggleFilter = (selectedFilters, filter) => {
@@ -25,34 +18,23 @@ const FilterLayout = ({ types, resources, onFilterChange }) => {
     };
 
     const clearAllFilters = () => {
-        setSelectedTypes([]);
-        setSelectedResources([]);
-        onFilterChange({ types: [], resources: [], keywordFilter: true });
+        setSelectedCategories([]);
+        onFilterChange({ categories: [], keywordFilter: true });
     };
 
     const handleKeywordFilterChange = (event) => {
         setKeywordFilter(event.target.checked);
-        onFilterChange({ types: selectedTypes, resources: selectedResources, keywordFilter: event.target.checked });
+        onFilterChange({ categories: selectedCategories, keywordFilter: event.target.checked });
     };
 
     return (
         <div className="filters">
             {/* Selected Filters Section */}
             {/* Only add if filters are present */}
-            { selectedTypes.length > 0 || selectedResources.length > 0 || keywordFilter
+            { selectedCategories.length > 0 || keywordFilter
                 ? <div className="selected-filters mb-4">
                 <h3>Selected Filters</h3>
-                {selectedTypes.map((type) => (
-                    <div className="selected-filter" key={`selected${type}`}>
-                        <button
-                            className="btn btn-outline-secondary btn-sm ms-2"
-                            onClick={() => handleTypeChange(type)}
-                        >
-                            {type} <i className="bi bi-x"></i>
-                        </button>
-                    </div>
-                ))}
-                {selectedResources.map((resource) => (
+                {selectedCategories.map((resource) => (
                     <div className="selected-filter" key={`selected${resource}`}>
                         <button
                             className="btn btn-outline-secondary btn-sm ms-2"
@@ -95,52 +77,24 @@ const FilterLayout = ({ types, resources, onFilterChange }) => {
                     type="checkbox"
                     value=""
                     id="filterAllCategories"
-                    checked={selectedTypes.length === 0}
-                    onChange={clearAllFilters}
+                    checked={selectedCategories.length === 0}
+                    onChange={() => {
+                        setSelectedCategories([]);
+                        onFilterChange({ categories: [] });
+                    }}
                 />
                 <label className="form-check-label" htmlFor="filterAllCategories">
                     All Categories
                 </label>
             </div>
-            {types.map((type) => (
-                <div className="form-check" key={type}>
-                    <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value={type}
-                        id={`filter${type}`}
-                        checked={selectedTypes.includes(type)}
-                        onChange={() => handleTypeChange(type)}
-                    />
-                    <label className="form-check-label" htmlFor={`filter${type}`}>
-                        {type}
-                    </label>
-                </div>
-            ))}
-            <div className="form-check mt-3">
-                <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="filterAllResources"
-                    checked={selectedResources.length === 0}
-                    onChange={() => {
-                        setSelectedResources([]);
-                        onFilterChange({ types: selectedTypes, resources: [] });
-                    }}
-                />
-                <label className="form-check-label" htmlFor="filterAllResources">
-                    All Resources
-                </label>
-            </div>
-            {resources.map((resource) => (
+            {categories.map((resource) => (
                 <div className="form-check" key={resource}>
                     <input
                         className="form-check-input"
                         type="checkbox"
                         value={resource}
                         id={`filter${resource}`}
-                        checked={selectedResources.includes(resource)}
+                        checked={selectedCategories.includes(resource)}
                         onChange={() => handleResourceChange(resource)}
                     />
                     <label className="form-check-label" htmlFor={`filter${resource}`}>
@@ -148,6 +102,12 @@ const FilterLayout = ({ types, resources, onFilterChange }) => {
                     </label>
                 </div>
             ))}
+            <button
+                className="btn btn-outline-danger mt-3"
+                onClick={clearAllFilters}
+            >
+                Clear All Filters
+            </button>
         </div>
     );
 };

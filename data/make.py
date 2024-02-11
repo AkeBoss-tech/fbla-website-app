@@ -97,11 +97,14 @@ def clean_data():
         if item not in cleaned_data:
             cleaned_data.append(item)
 
+    id_num = 0
     for item in cleaned_data:
         if item["address"] is not None: item["address"] = item["address"].strip().replace("\n", ", ")
         if item["phone"] is not None: item["phone"] = item["phone"].strip()
         if item["category"] is not None: item["category"] = item["category"].split(", ")
         if item["logo"] is None: item["logo"] = get_image_from_google(item["name"])
+        item["id"] = id_num
+        id_num += 1
     with open("data/cleaned_data.json", "w") as f:
         json.dump(cleaned_data, f)
 

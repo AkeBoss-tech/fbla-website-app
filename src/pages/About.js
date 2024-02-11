@@ -21,16 +21,16 @@ function About() {
                 <h2>Key Features</h2>
                 <ul>
                     <li>
-                        <strong>Search:</strong> Use our powerful search functionality to find organizations based on type, resources, and more.
+                        <strong>Search:</strong> Use our powerful search functionality to find organizations based on type, categories, and more.
                     </li>
                     <li>
-                        <strong>Filters:</strong> Narrow down your search with filters for organization types and available resources.
+                        <strong>Filters:</strong> Narrow down your search with filters for organization types and available categories.
                     </li>
                     <li>
                         <strong>Sorting:</strong> Sort organizations based on attributes like the number of employees for better relevance.
                     </li>
                     <li>
-                        <strong>Information Cards:</strong> Get detailed information about each organization, including contact details and available resources.
+                        <strong>Information Cards:</strong> Get detailed information about each organization, including contact details and available categories.
                     </li>
                     <li>
                         <strong>Responsive Design:</strong> Our website is designed to work seamlessly on various devices, ensuring accessibility for all users.

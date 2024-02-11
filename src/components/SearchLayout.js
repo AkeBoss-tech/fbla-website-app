@@ -5,9 +5,9 @@ import FilterLayout from './FilterLayout';
 import OrganizationCard from './OrganizationCard';
 
 const SearchLayout = ({ organizationsData }) => {
-    const [filters, setFilters] = useState({ types: [], resources: [], keywordFilter: true });
+    const [filters, setFilters] = useState({ categories: [], keywordFilter: true });
     const [searchText, setSearchText] = useState('');
-    const [sortBy, setSortBy] = useState('numberOfEmployees'); // Default sorting by number of employees
+    const [sortBy, setSortBy] = useState('name'); // Default sorting by number of employees
     const [sortOrderAsc, setSortOrderAsc] = useState(true); // Default sorting in ascending order
 
     const location = useLocation();
@@ -19,8 +19,7 @@ const SearchLayout = ({ organizationsData }) => {
         setSearchText(decodeURIComponent(keywords));
     }, [location.search]);
 
-    const types = Array.from(new Set(organizationsData.map((org) => org.type)));
-    const resources = Array.from(new Set(organizationsData.flatMap((org) => org.resources)));
+    const categories = Array.from(new Set(organizationsData.flatMap((org) => org.category)));
 
     const history = useNavigate();
 
@@ -40,22 +39,22 @@ const SearchLayout = ({ organizationsData }) => {
     const filteredOrganizations = organizationsData
     .filter(
         (organization) =>
-            (filters.types.length === 0 || filters.types.includes(organization.type)) &&
-            (filters.resources.length === 0 || organization.resources.some((res) => filters.resources.includes(res))) &&
+            (filters.categories.length === 0 || organization.category.some((res) => filters.categories.includes(res))) &&
             (!filters.keywordFilter || // Check if keyword filter is enabled
                 searchText === '' ||
                 organization.name.toLowerCase().includes(searchText.toLowerCase()) ||
-                organization.type.toLowerCase().includes(searchText.toLowerCase()) ||
-                organization.resources.some((res) => res.toLowerCase().includes(searchText.toLowerCase())) ||
-                organization.contact.name.toLowerCase().includes(searchText.toLowerCase()) ||
-                organization.contact.email.toLowerCase().includes(searchText.toLowerCase()) ||
-                organization.contact.phone.toLowerCase().includes(searchText.toLowerCase()))
+                organization.address.toLowerCase().includes(searchText.toLowerCase()) ||
+                organization.category.some((res) => res.toLowerCase().includes(searchText.toLowerCase())) ||
+                organization.about.toLowerCase().includes(searchText.toLowerCase()) ||
+                organization.website.toLowerCase().includes(searchText.toLowerCase()) ||
+                organization.contact_info.name.toLowerCase().includes(searchText.toLowerCase()) ||
+                organization.contact_info.title.toLowerCase().includes(searchText.toLowerCase()))
     )
     .sort(compareFunction);
 
 
-    const handleFilterChange = ({ types, resources, keywordFilter }) => {
-        setFilters({ types, resources, keywordFilter });
+    const handleFilterChange = ({ categories, keywordFilter }) => {
+        setFilters({ categories, keywordFilter });
     };
 
     const handleSearchChange = (event) => {
@@ -98,7 +97,7 @@ const SearchLayout = ({ organizationsData }) => {
             <div className="row">
                 {/* Filter Layout */}
                 <div className="col-md-3">
-                    <FilterLayout types={types} resources={resources} onFilterChange={handleFilterChange} />
+                    <FilterLayout categories={categories} onFilterChange={handleFilterChange} />
                 </div>
 
                 {/* Sort and Organizations Layout */}
@@ -112,7 +111,8 @@ const SearchLayout = ({ organizationsData }) => {
                                 value={sortBy}
                                 onChange={handleSortByChange}
                             >
-                                <option value="numberOfEmployees">Number of Employees</option>
+                                <option value="name">Name</option>
+                                <option value="distance">Distance</option>
                                 {/* Add more options for other attributes */}
                             </select>
                         </div>
