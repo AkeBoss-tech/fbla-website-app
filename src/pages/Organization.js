@@ -7,6 +7,24 @@ import Navbar from '../components/Navbar';
 import OrganizationCard from '../components/OrganizationCard';
 import Carousel from '../components/Carousel';
 
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex > 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
+
 const Organization = ({ partners }) => {
     const { id } = useParams();
     const partner = partners.find((p) => p.id === parseInt(id, 10));
@@ -16,7 +34,8 @@ const Organization = ({ partners }) => {
     }
 
     // Filter out the current organization from related organizations
-    const relatedOrganizations = partners.filter((p) => p.id !== partner.id).slice(0, 5); // Limit to 5 organizations
+    /* shuffle this list */
+    const relatedOrganizations = shuffle(partners.filter((p) => p.id !== partner.id)).slice(0, 8); // Limit to 5 organizations
 
     return (
         <>
@@ -63,15 +82,17 @@ const Organization = ({ partners }) => {
                 {partner.contact_info.name  && (
                     <div className="card">
                         <div className="card-body">
-                            <p className="card-title">{partner.contact_info.name}</p>
+                            <h5 className="card-title">Representative: {partner.contact_info.name}</h5>
                             <p className="card-text">{partner.contact_info.title}</p>
-                            <p className="card-text">{partner.contact_info.phone}</p>
+                            <p className="card-text"><i className="bi bi-telephone-fill"></i> {partner.contact_info.phone}</p>
                         </div>
                     </div>
                 )}
 
                 {/* if there are images make a caruosel for them */}
-                {partner.images.length > 0 && (
+                {partner.images != null && partner.images.length > 0 && (
+                    <>
+                    <h3>Images</h3>
                     <Carousel>
                         {partner.images.map((image) => (
                             <div className="p-2">
@@ -83,6 +104,7 @@ const Organization = ({ partners }) => {
                             </div>
                         ))}
                     </Carousel>
+                    </>
                 )}
                 <br></br>
                 

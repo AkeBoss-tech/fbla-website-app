@@ -4,6 +4,14 @@ import { useLocation, useNavigate  } from 'react-router-dom';
 import FilterLayout from './FilterLayout';
 import OrganizationCard from './OrganizationCard';
 
+function checkIfIn(thing, value) {
+    if (thing == null) {
+        return false;
+    }
+
+    return thing.toLowerCase().includes(value.toLowerCase())
+}
+
 const SearchLayout = ({ organizationsData }) => {
     const [filters, setFilters] = useState({ categories: [], keywordFilter: true });
     const [searchText, setSearchText] = useState('');
@@ -42,13 +50,13 @@ const SearchLayout = ({ organizationsData }) => {
             (filters.categories.length === 0 || organization.category.some((res) => filters.categories.includes(res))) &&
             (!filters.keywordFilter || // Check if keyword filter is enabled
                 searchText === '' ||
-                organization.name.toLowerCase().includes(searchText.toLowerCase()) ||
-                organization.address.toLowerCase().includes(searchText.toLowerCase()) ||
-                organization.category.some((res) => res.toLowerCase().includes(searchText.toLowerCase())) ||
-                organization.about.toLowerCase().includes(searchText.toLowerCase()) ||
-                organization.website.toLowerCase().includes(searchText.toLowerCase()) ||
-                organization.contact_info.name.toLowerCase().includes(searchText.toLowerCase()) ||
-                organization.contact_info.title.toLowerCase().includes(searchText.toLowerCase()))
+                checkIfIn(organization.name, searchText) ||
+                checkIfIn(organization.address, searchText) ||
+                organization.category.some((res) => checkIfIn(res, searchText)) ||
+                checkIfIn(organization.about, searchText) ||
+                checkIfIn(organization.website, searchText) ||
+                checkIfIn(organization.contact_info.name, searchText) ||
+                checkIfIn(organization.contact_info.title, searchText))
     )
     .sort(compareFunction);
 

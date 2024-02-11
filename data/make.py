@@ -103,6 +103,9 @@ def clean_data():
         if item["phone"] is not None: item["phone"] = item["phone"].strip()
         if item["category"] is not None: item["category"] = item["category"].split(", ")
         if item["logo"] is None: item["logo"] = get_image_from_google(item["name"])
+        if item["images"] is not None: 
+            # remove duplicate images
+            item["images"] = list(set(item["images"]))
         item["id"] = id_num
         id_num += 1
     with open("data/cleaned_data.json", "w") as f:
