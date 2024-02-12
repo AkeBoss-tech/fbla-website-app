@@ -112,17 +112,20 @@ const Organization = ({ partners }) => {
             </div>
 
             {/* Disqus */}
-            <DiscussionEmbed
-                shortname='organizations-near-you'
-                config={
-                    {
-                        url: window.location.href,
-                        identifier: partner.id.toString(),
-                        title: partner.name,
-                        language: 'en_US',
+            <div className="container mb-6 mt-5">
+                <DiscussionEmbed
+                    shortname='organizations-near-you'
+                    config={
+                        {
+                            url: window.location.href,
+                            identifier: partner.id.toString(),
+                            title: partner.name,
+                            language: 'en_US',
+                        }
                     }
-                }
-            />
+                />
+            </div>
+            
 
             {/* Carousel with Related Organizations */}
             <div className="related-organizations-carousel-container">

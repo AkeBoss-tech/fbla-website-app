@@ -7,17 +7,24 @@ const Footer = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">
-                        <h5>Contact Us</h5>
-                        <p>Email: contact@fblaproject.com</p>
-                        {/* <p>Phone: +1 (555) 123-4567</p> */}
+                        <img
+                            src="/images/logo.png"
+                            alt="Organizations Near You"
+                            className="img-fluid"
+                            style={{
+                                borderRadius: "50%",
+                                height: "150px",
+
+                            }}
+                        ></img>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4 text-white">
                         <h5>Quick Links</h5>
                         <ul>
                             <li><a href="/">Home</a></li>
                             <li><a href="/about">About Us</a></li>
-                            <li><a href="/services">Services</a></li>
-                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/search">Search</a></li>
+                            <li><a href="/comment">Comment Policy</a></li>
                         </ul>
                     </div>
                     <div className="col-md-4">

@@ -17,9 +17,18 @@ function Home({ partners }) {
     return (
         <div>
             <Navbar />
-            <div className="container mt-5">
+            <div className="container mt-3">
                 <div className="row">
                     <div className="col-md-8 mx-auto text-center">
+                        <img
+                            src="/images/logo.png"
+                            alt="Organizations Near You"
+                            className="img-fluid"
+                            style={{
+                                borderRadius: "50%",
+                                width: "200px",
+                            }}
+                        ></img>
                         <h1>Welcome to Organizations Near You</h1>
                         <p className="lead">Discover and connect with local organizations that match your interests.</p>
 
@@ -38,7 +47,10 @@ function Home({ partners }) {
                                 Search
                             </Link>
                         </div>
-
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-12 mx-auto text-center">
                         {/* Additional Information */}
                         <div className="my-5">
                             <h3>Why Choose Us?</h3>
@@ -54,7 +66,7 @@ function Home({ partners }) {
             {/* Carousel Section */}
             {/* Carousel with Related Organizations */}
             <div className="related-organizations-carousel-container">
-                    <h3>Related Organizations</h3>
+                    <h3>Suggested Organizations</h3>
                     <Carousel>
                         {relatedOrganizations.map((org) => (
                             <div className="p-2"><OrganizationCard organization={org} smallerSize={true} image={false} /></div>
