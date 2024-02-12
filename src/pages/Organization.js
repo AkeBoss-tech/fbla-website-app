@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import OrganizationCard from '../components/OrganizationCard';
 import Carousel from '../components/Carousel';
+import { DiscussionEmbed } from 'disqus-react';
 
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
@@ -109,6 +110,19 @@ const Organization = ({ partners }) => {
                 <br></br>
                 
             </div>
+
+            {/* Disqus */}
+            <DiscussionEmbed
+                shortname='organizations-near-you'
+                config={
+                    {
+                        url: window.location.href,
+                        identifier: partner.id.toString(),
+                        title: partner.name,
+                        language: 'en_US',
+                    }
+                }
+            />
 
             {/* Carousel with Related Organizations */}
             <div className="related-organizations-carousel-container">
