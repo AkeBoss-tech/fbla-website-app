@@ -22,14 +22,14 @@ function Home({ partners }) {
                     <div className="col-md-8 mx-auto text-center">
                         <img
                             src="/images/logo.png"
-                            alt="Organizations Near You"
+                            alt="CTE Partnerships"
                             className="img-fluid"
                             style={{
                                 borderRadius: "50%",
                                 width: "200px",
                             }}
                         ></img>
-                        <h1>Welcome to Organizations Near You</h1>
+                        <h1>Welcome to CTE Partnerships</h1>
                         <p className="lead">Discover and connect with local organizations that match your interests.</p>
 
                         {/* Search Box */}
@@ -55,7 +55,7 @@ function Home({ partners }) {
                         <div className="my-5">
                             <h3>Why Choose Us?</h3>
                             <p>
-                                Organizations Near You helps you find and engage with local nonprofits and businesses that align with your passions.
+                                CTE Partnerships helps you find and engage with local nonprofits and businesses that align with your passions.
                                 Whether you're interested in volunteering, internships, or collaboration, we've got you covered.
                             </p>
                         </div>

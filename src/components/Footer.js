@@ -9,7 +9,7 @@ const Footer = () => {
                     <div className="col-md-4">
                         <img
                             src="/images/logo.png"
-                            alt="Organizations Near You"
+                            alt="CTE Partnerships"
                             className="img-fluid"
                             style={{
                                 borderRadius: "50%",
@@ -48,7 +48,7 @@ const Footer = () => {
                 </div>
                 <hr className="mt-3" />
                 <div className="text-center">
-                    <p>&copy; 2023 Organizations Near You. All rights reserved.</p>
+                    <p>&copy; 2023 CTE Partnerships. All rights reserved.</p>
                 </div>
             </div>
         </footer>

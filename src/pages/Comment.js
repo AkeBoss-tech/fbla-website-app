@@ -10,7 +10,7 @@ function Comment() {
                 {/* Comment Policy */}
                 <h1>Comment Policy</h1>
 
-                <p>Welcome to <em>Organizations Near You</em> – a community dedicated to sharing organizations and work opportunities. We encourage open and constructive discussions to foster a positive and informative environment. To ensure a respectful and engaging experience for everyone, we have established the following comment policy:</p>
+                <p>Welcome to <em>CTE Partnerships</em> – a community dedicated to sharing organizations and work opportunities. We encourage open and constructive discussions to foster a positive and informative environment. To ensure a respectful and engaging experience for everyone, we have established the following comment policy:</p>
 
                 <h2>Guidelines for Comments</h2>
 
@@ -30,7 +30,7 @@ function Comment() {
 
                 <p>By participating in our community, you agree to adhere to these guidelines. We appreciate your cooperation in maintaining a positive and supportive space for sharing valuable information about organizations and work opportunities.</p>
 
-                <p>Thank you for being a part of <em>Organizations Near You</em>!</p>
+                <p>Thank you for being a part of <em>CTE Partnerships</em>!</p>
             </div>
             <Footer />
         </div>
