@@ -84,13 +84,13 @@
 }
 
 /* Add more styling as needed */
-.card {
+.org-card {
   width: 18rem; /* Adjust the width as needed */
   margin-top: 20px; /* Adjust the top margin as needed */
   transition: background-color 0.3s ease-in-out; /* Smooth transition on hover */
 }
 
-.card:hover {
+.org-card:hover {
   background-color: #e0e0e0; /* Change color on hover, adjust as needed */
 }
 

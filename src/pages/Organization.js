@@ -99,7 +99,7 @@ const Organization = ({ partners }) => {
         <div className="container mt-2">
           <div className="card-deck">
             {partner.address && (
-              <div className="card text-center">
+              <div className="card org-card text-center">
                 <div className="card-body">
                   <i className="bi bi-geo-alt-fill icon"></i>
                   <p className="card-text" title="Address">
@@ -109,7 +109,7 @@ const Organization = ({ partners }) => {
               </div>
             )}
             {partner.phone && (
-              <div className="card text-center">
+              <div className="card org-card text-center">
                 <div className="card-body">
                   <i className="bi bi-telephone-fill icon"></i>
                   <p className="card-text" title="Phone">
@@ -119,7 +119,7 @@ const Organization = ({ partners }) => {
               </div>
             )}
             {partner.website && (
-              <div className="card text-center">
+              <div className="card org-card text-center">
                 <div className="card-body">
                   <i className="bi bi-link-45deg icon"></i>
                   <p className="card-text" title="Website">
@@ -136,7 +136,7 @@ const Organization = ({ partners }) => {
 
         {/* make a little card for local representative if exists */}
         {partner.contact_info.name && (
-            <div className="card text-center mx-auto" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <div className="card org-card text-center mx-auto" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className="card-header">
         <i className="bi bi-person icon"></i>
       </div>
