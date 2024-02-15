@@ -1,7 +1,5 @@
-# Scrape 30 organizations from around NJ and save to json
 import requests
-from bs4 import BeautifulSoup, os
-import json
+from bs4 import BeautifulSoup
 
 url = "https://business.suburbanchambers.org/list/"
 
