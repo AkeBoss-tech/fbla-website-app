@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Comment from "./pages/Comment";
 import NotFound from "./pages/NotFound";
+import RequestOrganization from "./pages/RequestOrganization";
 
 const RedirectToHome = () => {
   useEffect(() => {
@@ -47,6 +48,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path='/comment' element={<Comment />} />
         <Route path="/partner/:id" element={<Organization partners={organizations} />} /> 
+        <Route path="/request-organization" element={<RequestOrganization />} />
         <Route path='*' element={<RedirectToHome />} />
       </Routes>
     </BrowserRouter>
