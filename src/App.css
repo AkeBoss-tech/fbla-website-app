@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.organization-card {
+  transition: box-shadow 0.3s ease; /* Initial transition for box-shadow */
+}
+
+.organization-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth animation */
+}
+
+/* Optional: If you want the shadow to fade out gradually after hovering stops */
+.organization-card:not(:hover) {
+  box-shadow: none;
+}
