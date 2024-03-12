@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 const FilterLayout = ({ categories, onFilterChange }) => {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [keywordFilter, setKeywordFilter] = useState(true);
-
+/*     const [addressFilter, setAddressFilter] = useState('any'); // Default to 'Any'
+ */
     const handleResourceChange = (resource) => {
         const updatedCategories = toggleFilter(selectedCategories, resource);
         setSelectedCategories(updatedCategories);
@@ -71,6 +72,20 @@ const FilterLayout = ({ categories, onFilterChange }) => {
                     Keywords
                 </label>
             </div>
+            {/* <div className="form-group mt-3">
+                <label htmlFor="addressFilter">Address Filter:</label>
+                <select
+                    className="form-control"
+                    id="addressFilter"
+                    value={addressFilter}
+                    onChange={handleAddressFilterChange}
+                >
+                    <option value="any">Any</option>
+                    <option value="hasAddress">Has Address</option>
+                    <option value="noAddress">No Address</option>
+                </select>
+            </div> */}
+
             <div className="form-check mt-3">
                 <input
                     className="form-check-input"

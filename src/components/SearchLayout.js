@@ -32,9 +32,9 @@ const SearchLayout = ({ organizationsData }) => {
     const history = useNavigate();
 
     const compareFunction = (a, b) => {
-        const valueA = a[sortBy];
-        const valueB = b[sortBy];
-
+        const valueA = a[sortBy].toLowerCase(); // Convert to lowercase for case-insensitive comparison
+        const valueB = b[sortBy].toLowerCase();
+    
         if (valueA < valueB) {
             return sortOrderAsc ? -1 : 1;
         }
@@ -43,6 +43,7 @@ const SearchLayout = ({ organizationsData }) => {
         }
         return 0;
     };
+    
 
     const filteredOrganizations = organizationsData
     .filter(
@@ -120,7 +121,7 @@ const SearchLayout = ({ organizationsData }) => {
                                 onChange={handleSortByChange}
                             >
                                 <option value="name">Name</option>
-                                <option value="distance">Distance</option>
+                                {/* <option value="distance">Distance</option> */}
                                 {/* Add more options for other attributes */}
                             </select>
                         </div>
