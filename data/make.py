@@ -16,26 +16,40 @@ def get_text_if_exists(thing):
         return thing.text
     return None
 
+# Method to extract data
 def get_data():
+    # Open all the links in chamber of commerce
     with open("data/links.txt") as f:
         links = f.readlines()
     links = [link.strip() for link in links]
+    # Create data list
     data = []
+
+    # Loop through to get HTML pages
     for link in links:
+        # Get it
         page = requests.get(link)
+        # setup soup
         soup = BeautifulSoup(page.content, "html.parser")
+
+        # Search for name
         name = soup.find("h1").text.strip()
         print(name)
+        # get category
         category = soup.find("div", {"class": "gz-details-categories"}).find('p')
         if category is not None:
+            # split the string and use commas
             category_string = ""
             for span in category.find_all("span"):
                 category_string += span.text + ", "
             category = category_string[:-2]
 
+        # get address
         address = soup.find("li", {"class": "gz-card-address"})
+        # check if it exists
         if address is not None:
             address = address.text
+        # get phone
         phone = soup.find("li", {"class": "gz-card-phone"})
         if phone is not None:
             phone = phone.text

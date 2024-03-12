@@ -1,12 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
 
+# set the url to scrape from
 url = "https://business.suburbanchambers.org/list/"
 
 # copy all the links in the div that has id "gz-ql"
 page = requests.get(url)
 soup = BeautifulSoup(page.content, "html.parser")
+# get the main content div
 div = soup.find("div", {"id": "gz-ql"})
+# find all the links on the page
 links = div.find_all("a")
 
 # get the href attribute from each link

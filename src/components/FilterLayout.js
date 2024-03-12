@@ -1,4 +1,3 @@
-// FilterLayout.js
 import React, { useState } from 'react';
 
 const FilterLayout = ({ categories, onFilterChange }) => {

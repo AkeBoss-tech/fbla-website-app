@@ -48,7 +48,9 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      {/* Configure all pages */}
       <Routes>
+        {/* Pass in the organizations json file */}
         <Route path="/" element={<Home partners={organizations} />} />
         <Route path="/search" element={<Search partners={organizations} />} />
         <Route path="/about" element={<About />} />
