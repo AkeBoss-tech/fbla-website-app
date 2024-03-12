@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 const FilterLayout = ({ categories, onFilterChange }) => {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [keywordFilter, setKeywordFilter] = useState(true);
-/*     const [addressFilter, setAddressFilter] = useState('any'); // Default to 'Any'
- */
+    const [addressFilter, setAddressFilter] = useState('any'); // Default to 'Any'
+ 
     const handleResourceChange = (resource) => {
         const updatedCategories = toggleFilter(selectedCategories, resource);
         setSelectedCategories(updatedCategories);
-        onFilterChange({ categories: updatedCategories, keywordFilter });
+        onFilterChange({ categories: updatedCategories, keywordFilter, hasAddressFilter: addressFilter });
     };
 
     const toggleFilter = (selectedFilters, filter) => {
@@ -20,13 +20,22 @@ const FilterLayout = ({ categories, onFilterChange }) => {
 
     const clearAllFilters = () => {
         setSelectedCategories([]);
-        onFilterChange({ categories: [], keywordFilter: true });
+        onFilterChange({ categories: [], keywordFilter: true, hasAddressFilter: addressFilter });
     };
 
     const handleKeywordFilterChange = (event) => {
         setKeywordFilter(event.target.checked);
-        onFilterChange({ categories: selectedCategories, keywordFilter: event.target.checked });
+        onFilterChange({ categories: selectedCategories, keywordFilter: event.target.checked, hasAddressFilter: addressFilter});
     };
+
+    const handleAddressFilterChange = (event) => {
+        setAddressFilter (event.target.checked);
+        onFilterChange({
+            categories: selectedCategories,
+            keywordFilter,
+            hasAddressFilter: event.target.checked,
+        });
+    };    
 
     return (
         <div className="filters">
@@ -84,7 +93,7 @@ const FilterLayout = ({ categories, onFilterChange }) => {
                     <option value="hasAddress">Has Address</option>
                     <option value="noAddress">No Address</option>
                 </select>
-            </div> */}
+            </div> */} 
 
             <div className="form-check mt-3">
                 <input

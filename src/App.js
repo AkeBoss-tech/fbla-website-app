@@ -9,15 +9,21 @@ import Comment from "./pages/Comment";
 import NotFound from "./pages/NotFound";
 import RequestOrganization from "./pages/RequestOrganization";
 
+// Redirect to home page after 2 seconds 
+// if the route is not found
 const RedirectToHome = () => {
   useEffect(() => {
     const delayRedirect = setTimeout(() => {
+      // redirect
       window.location.href = `/`;
     }, 2000); // 2000 milliseconds = 2 seconds
 
-    // Clear the timeout to avoid unnecessary redirection if the component unmounts
+    // Clear the timeout to avoid unnecessary 
+    // redirection if the component unmounts
     return () => clearTimeout(delayRedirect);
-  }, []); // Empty dependency array ensures the effect runs once after the initial render
+  }, []); 
+  // Empty dependency array ensures the 
+  // effect runs once after the initial render
 
   return <NotFound />;
 }
