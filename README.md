@@ -1,10 +1,13 @@
-# CTE Partnerships
+<h1 align="center">CTE Partnerships</h1>
 
-Akash Dubey, Ani Tiwary, and Krish Shettys' submission for FBLA's Coding and Programming Event 2024. We placed in the top 10 at the State Leadership Conference.
+<p align="center">By: Akash Dubey, Ani Tiwary, and Krish Shetty</p> 
+
+Our submission for FBLA's Coding and Programming Event 2024. We placed in the top 10 at the State Leadership Conference.
 
 ![Main Image](media/main.png)
 
-Presentation
+<p align="center">Presentation</p>
+
 [![alt text](media/prez.png)](https://docs.google.com/presentation/d/1lTFlAu6mtRz1dSESfeCmkwJv9zxPARS8UH0o9SkJL_k/edit?usp=sharing)
 
 ## Purpose
@@ -60,8 +63,7 @@ Using Disqus, users can leave comments on the website to provide feedback or ask
 
 - **React:** We used React to build the front end of our application, providing a responsive and interactive user experience.
 - **Node.js:** Our backend is powered by Node.js, handling data processing and server-side logic.
-- **Express:** We used Express to set up our server and manage API endpoints.
-- **Cheerio:** For web scraping, we used Cheerio to parse HTML and extract relevant data from local websites.
+- **BeautifySoup:** We used BeautifySoup to scrape data from websites, extracting relevant information about businesses and community partners from the [chamber of commerce](https://business.suburbanchambers.org/list/).
 - **GitHub:** Version control and collaboration were managed through GitHub, ensuring efficient team coordination and code management.
 
 ## Benefits of a Web-Based Approach
