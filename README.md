@@ -1,7 +1,9 @@
 # CTE Partnerships
 Akash Dubey, Ani Tiwary, and Krish Shettys' submission for FBLA's Coding and Programming Event 2024.
 
+
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQyGjxIbfpcXhkpV3CdHjKHUFyl8N2-Xh3qNkztsQbY3NRQcdwA_pgG3bgdzZwJlon9whl_ih9eXqXU/embed?start=true&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
 
 ## Purpose
 ### Prompt
