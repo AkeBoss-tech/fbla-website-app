@@ -1,16 +1,20 @@
-# Getting Started with Create React App
+# CTE Partnerships
+Akash Dubey, Ani Tiwary, and Krish Shettys' submission for FBLA's Coding and Programming Event 2024.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQyGjxIbfpcXhkpV3CdHjKHUFyl8N2-Xh3qNkztsQbY3NRQcdwA_pgG3bgdzZwJlon9whl_ih9eXqXU/embed?start=true&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-
-Rubric 
-https://www.fbla.org/media/Coding-and-Programming-FBLA-Rating-Sheet-2.pdf
-
-## Goal
+## Purpose
+### Prompt
 Create a program that allows your school’s Career and Technical Education Department to collect and store information about business and community partners. This program should include information on at least 25 different partners (real or fictional), with details such as, but not limited to, the type of organization, resources available, and direct contact information for an individual. The program should enable users to search and filter the information as needed
 [Source](https://connect.fbla.org/headquarters/files/High%20School%20Competitive%20Events%20Resources/Individual%20Guidelines/Presentation%20Events/Coding--Programming.pdf)
+[Rubric](https://www.fbla.org/media/Coding-and-Programming-FBLA-Rating-Sheet-2.pdf)
 
-## Available Scripts
+### Our Goal
+
+## Process
+We got data through scraping and then made a web app. we got feedback too
+
+## Development
 
 In the project directory, you can run:
 
@@ -52,27 +56,3 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
